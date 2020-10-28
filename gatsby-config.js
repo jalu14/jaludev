@@ -7,10 +7,12 @@
 module.exports = {
     /* Your site config here */
     siteMetadata: {
-        title: 'jaludev'
+        title: 'jaludev',
+        siteUrl: 'https://www.jaludev.com'
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-sitemap`,
         {
             resolve: 'gatsby-transformer-remark',
             options: {
