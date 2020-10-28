@@ -4,10 +4,7 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   purge: {
-      enabled: true,
-      content: [
-          'src/**/*.tsx',
-      ]
+      enabled: true
   },
   theme: {
     extend: {},
