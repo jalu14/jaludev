@@ -4,7 +4,9 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   purge: {
-      enabled: true
+      enabled: true,
+      content: [
+      ]
   },
   theme: {
     extend: {},
