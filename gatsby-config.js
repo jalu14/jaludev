@@ -42,16 +42,18 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-postcss',
             options: {
-                postCssPlugins: [require('tailwindcss')('./tailwind.config.js')],
+                postCssPlugins: [require('tailwindcss')],
             },
         },
         {
             resolve: `gatsby-plugin-purgecss`,
             options: {
                 printRejected: true,
+                develop: false,
                 tailwind: true,
-                ignore: ['']
-             }
+                ignore: ["/src/styles/base.css", '/src/styles/tailwind/base.css', 'prismjs/'],
+                whitelist: ['']
+            }
         }
     ],
 }
