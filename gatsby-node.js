@@ -20,7 +20,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const blogListTemplate = path.resolve('./src/templates/blog-list.tsx');
     const entries = await graphql(`
         query {
-            allMarkdownRemark {
+            allMarkdownRemark (filter: { frontmatter: { draft: { ne: true } } }) {
                 edges {
                     node {
                         fields {

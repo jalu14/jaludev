@@ -6,6 +6,7 @@ import { Layout } from '../components/layout';
 export const query = graphql`
     query ($skip: Int!, $limit: Int!) {
         allMarkdownRemark (
+            filter: { frontmatter: { draft: { ne: true } } }
             sort: {fields: [frontmatter___date], order: DESC}
             limit: $limit
             skip: $skip
@@ -13,8 +14,9 @@ export const query = graphql`
             edges {
             node {
                 frontmatter {
-                title,
-                date
+                    categories,
+                    title,
+                    date
                 },
                 html,
                 excerpt,
@@ -33,7 +35,7 @@ export default function BlogList(props: any) {
     const { currentPage, numPages } = props.pageContext;
     const isFirst = currentPage === 1;
     const isLast = currentPage === numPages;
-    const prevPage = currentPage - 1 === 1 ? "/blog" : (currentPage - 1).toString();
+    const prevPage = currentPage - 1 === 1 ? "/blog" : '/blog/page/' + (currentPage - 1).toString();
     const nextPage = "/blog/page/" + (currentPage + 1);
 
     return (
@@ -42,10 +44,14 @@ export default function BlogList(props: any) {
             <div>
                 <ol style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2em' }}>
                     {props.data.allMarkdownRemark.edges.map((edge: any) => {
+                        let header;
+                        if (edge.node.frontmatter.categories && edge.node.frontmatter.categories.length) {
+                            header = (<span className="font-bold text-gray-500">{edge.node.frontmatter.categories[0]}</span>);
+                        }
                         return (
                             <li key={edge.node.frontmatter.title} className="bg-gray-800 p-5 rounded-sm shadow-2xl relative">
-                                <Link className="text-white" style={{display: 'flex', flexDirection: 'column', height: '100%'}} to={`/blog/${edge.node.fields.slug}`}>
-                                    <span className="font-bold text-gray-500">{`Development`}</span>
+                                <Link className="text-white" style={{ display: 'flex', flexDirection: 'column', height: '100%' }} to={`/blog/${edge.node.fields.slug}`}>
+                                    {header}
                                     <h3 className="font-bold text-2xl">{edge.node.frontmatter.title}</h3>
                                     <div className="mt-10 flex-grow">
                                         <p>{edge.node.excerpt}</p>

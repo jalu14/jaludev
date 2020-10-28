@@ -54,11 +54,7 @@ Lo que hace es añadir 3 volúmenes extra a nginx-proxy y lo lanza usando los pu
 
 Un comando, parecido al anterior
 
-{{%panel "primary"%}}
-
 Poner nuestro mail en la variable de entorno hace que se nos notifique si algo ha fallado y van a caducar los certificados.
-
-{{%/panel %}}
 
 ```bash
 
@@ -78,7 +74,6 @@ Ahora cuando lancemos una aplicación le tenemos que añadir 2 variables de ento
 Yo, por ejemplo he desarrollado una API y la lanzo en otro contenedor con un subdominio que he creado (en este caso en cloudflare) **api.jaludev.com** **apuntando a la dirección IP** **del contenedor**.
 
 ```bash
-
     docker run --detach \
         --name your-proxyed-app \
         --env "VIRTUAL_HOST=api.jaludev.com" \
