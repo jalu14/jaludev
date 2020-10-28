@@ -55,7 +55,7 @@ module.exports = {
                 develop: process.env.DEVELOPMENT === 'true',
                 tailwind: true,
                 ignore: ["/src/styles/base.css", '/src/styles/tailwind/base.css', 'prismjs/'],
-                whitelist: [/^md:w-/, /^/]
+                whitelist: [/^md:w-/]
             }
         }
     ],
