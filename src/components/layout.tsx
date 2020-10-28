@@ -3,7 +3,6 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 
 export const Layout = ({children, width}: any) => {
-    // md:w-8/12 md:w-10/12
     width = width ? width : 10;
     return (
         <div>

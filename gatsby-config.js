@@ -49,10 +49,10 @@ module.exports = {
             resolve: `gatsby-plugin-purgecss`,
             options: {
                 printRejected: true,
-                develop: false,
+                develop: process.env.DEVELOPMENT === 'true',
                 tailwind: true,
                 ignore: ["/src/styles/base.css", '/src/styles/tailwind/base.css', 'prismjs/'],
-                whitelist: ['']
+                whitelist: [/^md:w-/, /^/]
             }
         }
     ],
