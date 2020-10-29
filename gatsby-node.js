@@ -3,8 +3,13 @@ const path = require('path');
 module.exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions;
 
-    if (node.internal.type === 'MarkdownRemark') {
-        const slug = path.basename(node.fileAbsolutePath, '.md').replace(/\s+/g, '-').toLowerCase();
+    if (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx') {
+        let slug;
+        if (node.internal.type === 'MarkdownRemark') {
+            slug = path.basename(node.fileAbsolutePath, '.md').replace(/\s+/g, '-').toLowerCase();
+        } else {
+            slug = path.basename(node.fileAbsolutePath, '.mdx').replace(/\s+/g, '-').toLowerCase();
+        }
 
         createNodeField({
             node,
@@ -20,7 +25,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const blogListTemplate = path.resolve('./src/templates/blog-list.tsx');
     const entries = await graphql(`
         query {
-            allMarkdownRemark (filter: { frontmatter: { draft: { ne: true } } }) {
+            allMdx (filter: { frontmatter: { draft: { ne: true } } }) {
                 edges {
                     node {
                         fields {
@@ -34,7 +39,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
     // Paginación
     const blogEntriesPerPage = 3;
-    const numPages = Math.ceil(entries.data.allMarkdownRemark.edges.length / blogEntriesPerPage);
+    const numPages = Math.ceil(entries.data.allMdx.edges.length / blogEntriesPerPage);
 
     Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
@@ -49,7 +54,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
         });
     });
 
-    entries.data.allMarkdownRemark.edges.forEach((edge) => {
+    entries.data.allMdx.edges.forEach((edge) => {
         createPage({
             component: blogTemplate,
             path: `/blog/${edge.node.fields.slug}`,

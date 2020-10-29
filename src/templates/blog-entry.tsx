@@ -1,18 +1,19 @@
 import React from "react"
 import { graphql, Link } from "gatsby";
-import { Layout } from '../components/layout';
+import { LayoutPost } from '../components/layout-post';
 import { Head } from "../components/head";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 export const query = graphql`
     query ($slug: String!) {
-        markdownRemark (
+        mdx (
           fields: {
             slug: {
               eq: $slug
             }
           }
         ) {
-            html,
+            body,
             frontmatter {
                 title
             }
@@ -22,12 +23,10 @@ export const query = graphql`
 
 export default function BlogEntry(props: any) {
     return (
-        <Layout width={8}>
-            <Head title={props.data.markdownRemark.frontmatter.title} />
-            <h1 className="font-bold mb-20 text-3xl text-gray-400">{props.data.markdownRemark.frontmatter.title}</h1>
-            <article
-                dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}>
-            </article>
-        </Layout>
+        <LayoutPost width={8}>
+            <Head title={props.data.mdx.frontmatter.title} />
+            <h1 className="font-bold mb-20 text-3xl text-gray-400">{props.data.mdx.frontmatter.title}</h1>
+            <MDXRenderer>{props.data.mdx.body}</MDXRenderer>
+        </LayoutPost>
     )
 }

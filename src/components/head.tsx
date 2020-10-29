@@ -17,6 +17,7 @@ export const Head = ({ title }: any) => {
     return (
         <Helmet title={`${title} | ${data.site.siteMetadata.title}`}>
             <html lang="es" />
+            <meta name="og" />
         </Helmet>
     )
 }

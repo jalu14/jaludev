@@ -5,7 +5,7 @@ import { Layout } from '../components/layout';
 
 export const query = graphql`
     query ($skip: Int!, $limit: Int!) {
-        allMarkdownRemark (
+        allMdx (
             filter: { frontmatter: { draft: { ne: true } } }
             sort: {fields: [frontmatter___date], order: DESC}
             limit: $limit
@@ -43,15 +43,14 @@ export default function BlogList(props: any) {
             <Head title="Blog" />
             <div>
                 <ol style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2em' }}>
-                    {props.data.allMarkdownRemark.edges.map((edge: any) => {
-                        let header;
-                        if (edge.node.frontmatter.categories && edge.node.frontmatter.categories.length) {
-                            header = (<span className="font-bold text-gray-500">{edge.node.frontmatter.categories[0]}</span>);
-                        }
+                    {props.data.allMdx.edges.map((edge: any) => {
                         return (
                             <li key={edge.node.frontmatter.title} className="bg-gray-800 p-5 rounded-sm shadow-2xl relative">
                                 <Link className="text-white" style={{ display: 'flex', flexDirection: 'column', height: '100%' }} to={`/blog/${edge.node.fields.slug}`}>
-                                    {header}
+                                    {
+                                        (edge.node.frontmatter.categories && edge.node.frontmatter.categories.length) &&
+                                        <span className="font-bold text-gray-500">{edge.node.frontmatter.categories[0]}</span>
+                                    }
                                     <h3 className="font-bold text-2xl">{edge.node.frontmatter.title}</h3>
                                     <div className="mt-10 flex-grow">
                                         <p>{edge.node.excerpt}</p>

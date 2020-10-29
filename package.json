@@ -15,8 +15,12 @@
         "type-check": "tsc --noEmit"
     },
     "dependencies": {
+        "@mdx-js/mdx": "^1.6.19",
+        "@mdx-js/react": "^1.6.19",
+        "@types/mdx-js__react": "^1.5.3",
         "@types/react-helmet": "^6.1.0",
         "gatsby": "^2.24.85",
+        "gatsby-plugin-mdx": "^1.2.52",
         "gatsby-plugin-netlify": "^2.3.25",
         "gatsby-plugin-postcss": "^3.0.4",
         "gatsby-plugin-purgecss": "^5.0.0",

@@ -18,39 +18,37 @@ Parcel funciona desde un terminal, se instala en la línea de comandos y se oper
 ## Instalando Parcel
 
 Instalar Parcel es de lo más sencillo, tal y como tienen en su guía solo hay que tener [NodeJS](https://nodejs.org/en/) instalado para usar npm e introducir este comando:
-{{<highlight bash>}}
+
+```bash
 npm install -g parcel-bundler
-{{</highlight>}}
+```
+
 ## Creando el proyecto con Parcel
 
 Yo voy a crear un proyecto y añadir Parcel desde 0, pero si ya tienes algo creado, implementar Parcel no cuesta nada, es algo de lo que presumen y con razón.
 
 Mi proyecto consta de solo 3 archivos
 
-{{<highlight javascript "hl_lines=4">}}
+```javascript
 // package.json
 ...
 "scripts": {
     "start": "parcel index.html",
 },
 ...
-{{</highlight>}}
+```
 
-{{<highlight typescript>}}
-
+```typescript
 // Un documento Typescript normal
 
 console.log('Hola parcel');
+```
 
-{{</highlight>}}
-
-{{<highlight html>}}
-
+```html
 <!-- Y el index.html -->
 
 <script src="index.ts"></script>
-
-{{</highlight>}}
+```
 
 Ya está con estos 3 archivos se puede lanzar el servidor, que nos abrirá el entorno de desarrollo en **127.0.0.1:1234** por defecto.
 

@@ -12,20 +12,20 @@ weight: 1
 Primero de todo, hago un borrador que más adelante mejoraré (segurooo) con los comandos.
 
 ### Crear, en el servidor, un archivo tar.gz de una carpeta para facilitar la descarga
-{{< highlight bash >}}
+```bash
     tar -zcvf 'nombre-archivo'.tar.gz 'carpeta/'
-{{</highlight>}}
+```
 
 ### Descargar la carpeta desde el servidor
-{{< highlight bash >}}
+```bash
     scp -i 'nombre-archivo-clave' 'root'@'ip-servidor':/home/ubuntu/'nombre-archivo'.tar.gz ./
-{{</highlight>}}
+```
 Este comando copiará el archivo en la carpeta desde la que lo ejecutemos.
 
 ### Subir el archivo a un servidor
-{{< highlight bash >}}
+```bash
     scp -i 'nombre-archivo-clave' .\'nombre-archivo'.tar.gz 'root'@'ip-destino':/home/ubuntu
-{{</highlight>}}
+```
 Y esto dejará el archivo tar.gz en el sitio que queramos.
 
 Ya está, he tardado un par de horas en sacar esto con el tema de la clave así que vendrá bien tenerlo apuntado.

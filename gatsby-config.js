@@ -14,10 +14,27 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-netlify`,
+        // {
+        //     resolve: `gatsby-plugin-mdx`,
+        //     options: {
+        //         extensions: [`.mdx`, `.md`],
+        //     },
+        // },
         {
-            resolve: 'gatsby-transformer-remark',
+            resolve: 'gatsby-source-filesystem',
             options: {
-                plugins: [
+                name: 'src',
+                path: `${__dirname}/src/`
+            }
+        },
+        {
+            resolve: 'gatsby-plugin-mdx',
+            extensions: [`.md`, `.mdx`],
+            options: {
+                defaultLayouts: {
+                    default: require.resolve("./src/components/layout-post.tsx"),
+                },
+                gatsbyRemarkPlugins: [
                     {
                         resolve: 'gatsby-remark-prismjs',
                         options: {
@@ -25,13 +42,7 @@ module.exports = {
                         }
                     }
                 ]
-            }
-        },
-        {
-            resolve: 'gatsby-source-filesystem',
-            options: {
-                name: 'src',
-                path: `${__dirname}/src/`
+
             }
         },
         {
@@ -51,7 +62,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-purgecss`,
             options: {
-                printRejected: true,
+                printRejected: false,
                 develop: process.env.DEVELOPMENT === 'true',
                 tailwind: true,
                 ignore: ["/src/styles/base.css", '/src/styles/tailwind/base.css', 'prismjs/'],
