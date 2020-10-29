@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from 'gatsby'
 
 export interface Props {
-    title: string
+    title?: string
 }
 
 export class Header extends React.Component<Props> {
-    public title: string;
+    public title?: string;
     private header: any;
     
     constructor(props: Props) {
@@ -15,6 +15,7 @@ export class Header extends React.Component<Props> {
     }
     componentDidMount() {
         this.header = document.getElementById('floating-header');
+        if (!this.header) return;
         window.addEventListener('scroll', () => {
             let scrollPos = window.scrollY;
             if (scrollPos > 170) {
@@ -30,7 +31,7 @@ export class Header extends React.Component<Props> {
                 <nav className="flex items-center py-4 mx-4 sm:mx-20 sm:px-2">
                     <Link to="/" className="font-bold">jaludev</Link>
                     <div className="flex-grow">
-                        <div id="floating-header" className={`border-l-2 ml-3 pl-3`}>{this.title}</div>
+                        {this.title && <div id="floating-header" className={`border-l-2 ml-3 pl-3`}>{this.title}</div>}
                     </div>
                     <ul className="flex list-none">
                         <li>

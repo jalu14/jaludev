@@ -32,3 +32,28 @@ article a {
 #floating-header.active {
     opacity: 100;
 }
+
+.blog-entries {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+}
+
+.entry-card {
+    list-style: none;
+}
+
+@media (max-width: 1200px) {
+    .blog-entries {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 768px) {
+    #floating-header {
+        display: none;
+    }
+    .blog-entries {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

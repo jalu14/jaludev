@@ -49,17 +49,19 @@ module.exports.createPages = async ({ graphql, actions }) => {
                 limit: blogEntriesPerPage,
                 skip: i * blogEntriesPerPage,
                 numPages,
-                currentPage: i + 1,
+                currentPage: i + 1
             },
         });
     });
 
     entries.data.allMdx.edges.forEach((edge) => {
+        const suggestedPost = entries.data.allMdx.edges[Math.floor(Math.random() * entries.data.allMdx.edges.length)];
         createPage({
             component: blogTemplate,
             path: `/${edge.node.fields.slug}`,
             context: {
-                slug: edge.node.fields.slug
+                slug: edge.node.fields.slug,
+                suggestedPostSlug: suggestedPost.node.fields.slug
             }
         })
     });

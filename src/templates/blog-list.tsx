@@ -1,5 +1,6 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
+import { EntryCard } from "../components/entry-card";
 import { Head } from "../components/head";
 import { Layout } from '../components/layout';
 
@@ -41,25 +42,10 @@ export default function BlogList(props: any) {
         <Layout>
             <Head title="Blog" />
             <div className="mb-10">
-                <ol style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2em' }}>
+                <ol className="blog-entries" style={{ display: 'grid'}}>
                     {props.data.allMdx.edges.map((edge: any) => {
                         return (
-                            <li key={edge.node.frontmatter.title} className="bg-gray-800 p-5 rounded-sm shadow-2xl relative">
-                                <Link className="text-white" style={{ display: 'flex', flexDirection: 'column', height: '100%' }} to={`/${edge.node.fields.slug}`}>
-                                    {
-                                        (edge.node.frontmatter.categories && edge.node.frontmatter.categories.length) &&
-                                        <span className="font-bold text-gray-500">{edge.node.frontmatter.categories[0]}</span>
-                                    }
-                                    <h3 className="font-bold text-2xl">{edge.node.frontmatter.title}</h3>
-                                    <span>{edge.node.frontmatter.date}</span>
-                                    <div className="mt-10 flex-grow">
-                                        <p>{edge.node.excerpt}</p>
-                                    </div>
-                                    <div className="mt-5">
-                                        <span className="font-bold">Leer más</span>
-                                    </div>
-                                </Link>
-                            </li>
+                            <EntryCard {...edge.node} />
                         )
                     })}
                 </ol>
