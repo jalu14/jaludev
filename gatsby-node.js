@@ -38,12 +38,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
     `);
 
     // Paginación
-    const blogEntriesPerPage = 3;
+    const blogEntriesPerPage = 6;
     const numPages = Math.ceil(entries.data.allMdx.edges.length / blogEntriesPerPage);
 
     Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-            path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
+            path: i === 0 ? `/` : `/page/${i + 1}`,
             component: blogListTemplate,
             context: {
                 limit: blogEntriesPerPage,
@@ -57,7 +57,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     entries.data.allMdx.edges.forEach((edge) => {
         createPage({
             component: blogTemplate,
-            path: `/blog/${edge.node.fields.slug}`,
+            path: `/${edge.node.fields.slug}`,
             context: {
                 slug: edge.node.fields.slug
             }

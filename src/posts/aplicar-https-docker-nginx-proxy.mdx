@@ -35,7 +35,6 @@ Añadir el HTTPS de forma automática a los docker sin añadir mucho más que 2 
 Ahora queremos lanzar el contenedor de nginx de esta forma
 
 ```bash
-
     docker run --detach \
         --name nginx-proxy \
         --publish 80:80 \
@@ -57,7 +56,6 @@ Un comando, parecido al anterior
 Poner nuestro mail en la variable de entorno hace que se nos notifique si algo ha fallado y van a caducar los certificados.
 
 ```bash
-
     docker run --detach \
         --name nginx-proxy-letsencrypt \
         --volumes-from nginx-proxy \

@@ -14,12 +14,6 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-netlify`,
-        // {
-        //     resolve: `gatsby-plugin-mdx`,
-        //     options: {
-        //         extensions: [`.mdx`, `.md`],
-        //     },
-        // },
         {
             resolve: 'gatsby-source-filesystem',
             options: {
@@ -63,10 +57,9 @@ module.exports = {
             resolve: `gatsby-plugin-purgecss`,
             options: {
                 printRejected: false,
-                develop: process.env.DEVELOPMENT === 'true',
+                develop: true,
                 tailwind: true,
-                ignore: ["/src/styles/base.css", '/src/styles/tailwind/base.css', 'prismjs/'],
-                whitelist: [/^md:w-/]
+                ignore: ["/src/styles/base.css", '/src/styles/tailwind/base.css', 'prismjs/']
             }
         }
     ],

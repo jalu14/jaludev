@@ -16,9 +16,8 @@ export const query = graphql`
                 frontmatter {
                     categories,
                     title,
-                    date
+                    date(formatString: "DD MMM YYYY", locale: "es")
                 },
-                html,
                 excerpt,
                 timeToRead,
                 fields {
@@ -35,23 +34,24 @@ export default function BlogList(props: any) {
     const { currentPage, numPages } = props.pageContext;
     const isFirst = currentPage === 1;
     const isLast = currentPage === numPages;
-    const prevPage = currentPage - 1 === 1 ? "/blog" : '/blog/page/' + (currentPage - 1).toString();
-    const nextPage = "/blog/page/" + (currentPage + 1);
+    const prevPage = currentPage - 1 === 1 ? "/" : '/page/' + (currentPage - 1).toString();
+    const nextPage = "/page/" + (currentPage + 1);
 
     return (
         <Layout>
             <Head title="Blog" />
-            <div>
+            <div className="mb-10">
                 <ol style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2em' }}>
                     {props.data.allMdx.edges.map((edge: any) => {
                         return (
                             <li key={edge.node.frontmatter.title} className="bg-gray-800 p-5 rounded-sm shadow-2xl relative">
-                                <Link className="text-white" style={{ display: 'flex', flexDirection: 'column', height: '100%' }} to={`/blog/${edge.node.fields.slug}`}>
+                                <Link className="text-white" style={{ display: 'flex', flexDirection: 'column', height: '100%' }} to={`/${edge.node.fields.slug}`}>
                                     {
                                         (edge.node.frontmatter.categories && edge.node.frontmatter.categories.length) &&
                                         <span className="font-bold text-gray-500">{edge.node.frontmatter.categories[0]}</span>
                                     }
                                     <h3 className="font-bold text-2xl">{edge.node.frontmatter.title}</h3>
+                                    <span>{edge.node.frontmatter.date}</span>
                                     <div className="mt-10 flex-grow">
                                         <p>{edge.node.excerpt}</p>
                                     </div>

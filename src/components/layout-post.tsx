@@ -6,14 +6,13 @@ import { Header } from "./header";
 
 const shortcodes = { Highlight };
 
-export const LayoutPost = ({ children, width }: any) => {
-    // md:w-8/12 md:w-10/12
-    width = width ? width : 10;
+export const LayoutPost = ({ children, extraClasses, title }: any) => {
+    extraClasses = extraClasses ? extraClasses : 'md:w-10/10';
     return (
         <div>
-            <Header />
+            <Header title={title} ></Header>
             <div style={{ height: '56px' }}></div>
-            <div className={`md:w-${width}/12 mx-auto mt-16 text-gray-300`}>
+            <div className={`${extraClasses} mx-auto mt-16 text-gray-300`}>
                 <MDXProvider components={shortcodes}>{children}</MDXProvider>
             </div>
             {/* <Footer /> */}

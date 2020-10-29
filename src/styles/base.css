@@ -23,3 +23,12 @@ article a {
     border-bottom-width: 1px;
     font-weight: 700;
 }
+
+#floating-header {
+    opacity: 0;
+    transition-duration: 100ms;
+}
+
+#floating-header.active {
+    opacity: 100;
+}
