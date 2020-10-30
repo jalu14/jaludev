@@ -58,7 +58,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
         const suggestedPost = entries.data.allMdx.edges[Math.floor(Math.random() * entries.data.allMdx.edges.length)];
         createPage({
             component: blogTemplate,
-            path: `/${edge.node.fields.slug}`,
+            path: `/blog/${edge.node.fields.slug}`,
             context: {
                 slug: edge.node.fields.slug,
                 suggestedPostSlug: suggestedPost.node.fields.slug
