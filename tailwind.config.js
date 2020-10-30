@@ -2,7 +2,7 @@ module.exports = {
     future: {
     },
     purge: {
-        enabled: true,
+        enabled: false,
         content: ["./src/**/*.css", "./src/**/*.tsx"],
         whitelist: ['']
     },
