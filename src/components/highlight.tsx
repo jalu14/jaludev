@@ -2,7 +2,7 @@ import React from "react";
 
 export const Highlight = ({ children }: any) => {
     return (
-        <div className="bg-red-100">
+        <div className="p-4 border-2 border-blue-900">
             {children}
         </div>
     )
