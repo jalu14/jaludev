@@ -56,7 +56,7 @@ export default function BlogEntry(props: any) {
                 </MDXRenderer>
             </article>
 
-            <hr className="border-gray-100 mb-20 mt-10"/>
+            <hr className="border-gray-100 mb-20 mt-10 "/>
 
             <div className="footer mb-20 md:w-5/12">
                 <EntryCard {...props.data.suggested} />
