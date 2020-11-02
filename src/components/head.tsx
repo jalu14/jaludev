@@ -14,8 +14,10 @@ export const Head = ({ title, children }: any) => {
         }
     `);
 
+    title = title ? `${title} | ${data.site.siteMetadata.title}` : 'jaludev - Cosas de programación'
+
     return (
-        <Helmet title={`${title ? `${title} | ` : ''}${data.site.siteMetadata.title}`}>
+        <Helmet title={title}>
             <html lang="es" />
             <meta name="google-site-verification" content="Q5hFA7PrMGkvUMPMQpwPVT_zT6AhbQFIq4tOxnC3Le0" />
             {children}
