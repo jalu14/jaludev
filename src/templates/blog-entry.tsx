@@ -14,7 +14,10 @@ export const query = graphql`
             }
           }
         ) {
-            body,
+            fields {
+                slug
+            }
+            body
             frontmatter {
                 title,
                 date(formatString: "DD MMMM YYYY", locale: "es")
@@ -45,7 +48,18 @@ export const query = graphql`
 export default function BlogEntry(props: any) {
     return (
         <LayoutPost title={props.data.entry.frontmatter.title} extraClasses="w-11/12 md:w-8/12">
-            <Head title={props.data.entry.frontmatter.title} />
+            <Head title={props.data.entry.frontmatter.title} >
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={props.data.entry.frontmatter.title} />
+                <meta property="twitter:title" content={props.data.entry.frontmatter.title} />
+                <meta property="og:description" content={props.data.entry.excerpt} />
+                <meta property="twitter:description" content={props.data.entry.excerpt} />
+                <meta property="og:url" content={`https://www.jaludev.com/blog/${props.data.entry.fields.slug}`} />
+                <meta property="og:site_name" content="jaludev" />
+
+                <meta property="twitter:site" content="@jaludevo" />
+                <meta property="twitter:creator" content="@jaludevo" />
+            </Head>
             <div className="mb-20">
                 <h1 className="font-bold text-3xl text-gray-400">{props.data.entry.frontmatter.title}</h1>
                 <span>{props.data.entry.frontmatter.date}</span>
@@ -56,7 +70,7 @@ export default function BlogEntry(props: any) {
                 </MDXRenderer>
             </article>
 
-            <hr className="border-gray-100 mb-20 mt-10 "/>
+            <hr className="border-gray-100 mb-20 mt-10 " />
 
             <div className="footer mb-20 md:w-5/12">
                 <EntryCard {...props.data.suggested} />

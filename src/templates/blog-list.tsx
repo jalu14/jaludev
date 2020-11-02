@@ -40,9 +40,20 @@ export default function BlogList(props: any) {
 
     return (
         <Layout>
-            <Head title="Blog" />
+            <Head title="Blog" >
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="jaludev" />
+                <meta property="twitter:title" content="jaludev" />
+                <meta property="og:description" content="Blog personal con apuntes de los desarrollos/experimentos que voy haciendo, sobre todo Javascript" />
+                <meta property="twitter:description" content="Blog personal con apuntes de los desarrollos/experimentos que voy haciendo, sobre todo Javascript" />
+                <meta property="og:url" content={`https://www.jaludev.com/blog`} />
+                <meta property="og:site_name" content="jaludev" />
+
+                <meta property="twitter:site" content="@jaludevo" />
+                <meta property="twitter:creator" content="@jaludevo" />
+            </Head>
             <div className="mb-10">
-                <ol className="blog-entries" style={{ display: 'grid'}}>
+                <ol className="blog-entries" style={{ display: 'grid' }}>
                     {props.data.allMdx.edges.map((edge: any) => {
                         return (
                             <EntryCard {...edge.node} />
