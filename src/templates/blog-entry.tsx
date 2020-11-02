@@ -23,6 +23,21 @@ export const query = graphql`
                 date(formatString: "DD MMMM YYYY", locale: "es")
             }
         }
+        entryUnformatted: mdx (
+            fields: {
+                slug: {
+                eq: $slug
+                }
+            }
+        ) {
+            fields {
+                slug
+            }
+            body
+            frontmatter {
+                date
+            }
+        }
         suggested: mdx (
             fields: {
               slug: {
@@ -51,14 +66,20 @@ export default function BlogEntry(props: any) {
             <Head title={props.data.entry.frontmatter.title} >
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content={props.data.entry.frontmatter.title} />
-                <meta property="twitter:title" content={props.data.entry.frontmatter.title} />
                 <meta property="og:description" content={props.data.entry.excerpt} />
-                <meta property="twitter:description" content={props.data.entry.excerpt} />
                 <meta property="og:url" content={`https://www.jaludev.com/blog/${props.data.entry.fields.slug}`} />
                 <meta property="og:site_name" content="jaludev" />
 
+                {/* Twitter */}
                 <meta property="twitter:site" content="@jaludevo" />
                 <meta property="twitter:creator" content="@jaludevo" />
+                <meta property="twitter:title" content={props.data.entry.frontmatter.title} />
+                <meta property="twitter:description" content={props.data.entry.excerpt} />
+
+                {/* Especial de article */}
+                <meta property="article:published_time" content={props.data.entryUnformatted.frontmatter.date} />
+                <meta property="article:author" content="jaludev" />
+                <meta property="article:section" content="Technology" />
             </Head>
             <div className="mb-20">
                 <h1 className="font-bold text-3xl text-gray-400">{props.data.entry.frontmatter.title}</h1>
