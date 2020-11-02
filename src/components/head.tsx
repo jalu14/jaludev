@@ -15,9 +15,8 @@ export const Head = ({ title, children }: any) => {
     `);
 
     return (
-        <Helmet title={`${title} | ${data.site.siteMetadata.title}`}>
+        <Helmet title={`${title ? `${title} | ` : ''}${data.site.siteMetadata.title}`}>
             <html lang="es" />
-            <meta name="og" />
             {children}
         </Helmet>
     )
