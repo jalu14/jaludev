@@ -41,10 +41,10 @@ export default function BlogList(props: any) {
     return (
         <Layout>
             <Head>
-                <meta property="name" content="jaludev" />
-                <meta property="description" content="Blog personal con apuntes de los desarrollos/experimentos que voy haciendo, sobre todo Javascript" />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content="jaludev" />
+                <meta name="title" content="jaludev" />
+                <meta name="description" content="Blog personal con apuntes de los desarrollos/experimentos que voy haciendo, sobre todo Javascript" />
+                <meta name="og:type" content="website" />
+                <meta name="og:title" content="jaludev" />
                 <meta property="twitter:title" content="jaludev" />
                 <meta property="og:description" content="Blog personal con apuntes de los desarrollos/experimentos que voy haciendo, sobre todo Javascript" />
                 <meta property="twitter:description" content="Blog personal con apuntes de los desarrollos/experimentos que voy haciendo, sobre todo Javascript" />

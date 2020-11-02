@@ -18,6 +18,7 @@ export const query = graphql`
                 slug
             }
             body
+            excerpt
             frontmatter {
                 title,
                 date(formatString: "DD MMMM YYYY", locale: "es")
@@ -64,6 +65,10 @@ export default function BlogEntry(props: any) {
     return (
         <LayoutPost title={props.data.entry.frontmatter.title} extraClasses="w-11/12 md:w-8/12">
             <Head title={props.data.entry.frontmatter.title} >
+                <meta name="title" content={props.data.entry.frontmatter.title} />
+                <meta name="description" content={props.data.entry.excerpt} />
+
+                {/* Facebook */}
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content={props.data.entry.frontmatter.title} />
                 <meta property="og:description" content={props.data.entry.excerpt} />
