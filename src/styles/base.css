@@ -17,6 +17,10 @@ ul {
     padding: 0 1.25rem;
 }
 
+article {
+    font-size: larger;
+}
+
 article a {
     border-color: #63b3ed;
     color: #ebf8ff;

@@ -1,10 +1,10 @@
 import React from "react";
 import { MDXProvider } from '@mdx-js/react';
-import { Highlight } from './mdx.components';
+import * as components from './mdx.components';
 import { Footer } from "./footer";
 import { Header } from "./header";
 
-const shortcodes = { Highlight };
+const shortcodes = components;
 
 export const LayoutPost = ({ children, extraClasses, title }: any) => {
     extraClasses = extraClasses ? extraClasses : 'md:w-10/10';
