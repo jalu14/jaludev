@@ -3,14 +3,8 @@ const path = require('path');
 module.exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions;
 
-    if (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx') {
-        let slug;
-        if (node.internal.type === 'MarkdownRemark') {
-            slug = path.basename(node.fileAbsolutePath, '.md').replace(/\s+/g, '-').toLowerCase();
-        } else {
-            slug = path.basename(node.fileAbsolutePath, '.mdx').replace(/\s+/g, '-').toLowerCase();
-        }
-
+    if (node.internal.type === 'Mdx') {
+        let slug = path.basename(node.fileAbsolutePath, '.mdx').replace(/\s+/g, '-').toLowerCase();
         createNodeField({
             node,
             name: 'slug',

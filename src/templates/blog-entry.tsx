@@ -49,6 +49,7 @@ export const query = graphql`
             frontmatter {
                 categories,
                 title,
+                description,
                 date(formatString: "DD MMM YYYY", locale: "es")
             },
             excerpt,
@@ -66,12 +67,12 @@ export default function BlogEntry(props: any) {
         <LayoutPost title={props.data.entry.frontmatter.title} extraClasses="w-11/12 md:w-8/12">
             <Head title={props.data.entry.frontmatter.title} >
                 <meta name="title" content={props.data.entry.frontmatter.title} />
-                <meta name="description" content={props.data.entry.excerpt} />
+                <meta name="description" content={props.data.entry.frontmatter.description} />
 
                 {/* Facebook */}
                 <meta property="og:type" content="article" />
                 <meta property="og:title" content={props.data.entry.frontmatter.title} />
-                <meta property="og:description" content={props.data.entry.excerpt} />
+                <meta property="og:description" content={props.data.entry.frontmatter.description} />
                 <meta property="og:url" content={`https://www.jaludev.com/blog/${props.data.entry.fields.slug}`} />
                 <meta property="og:site_name" content="jaludev" />
 
@@ -79,7 +80,7 @@ export default function BlogEntry(props: any) {
                 <meta property="twitter:site" content="@jaludevo" />
                 <meta property="twitter:creator" content="@jaludevo" />
                 <meta property="twitter:title" content={props.data.entry.frontmatter.title} />
-                <meta property="twitter:description" content={props.data.entry.excerpt} />
+                <meta property="twitter:description" content={props.data.entry.frontmatter.description} />
 
                 {/* Especial de article */}
                 <meta property="article:published_time" content={props.data.entryUnformatted.frontmatter.date} />
@@ -98,7 +99,7 @@ export default function BlogEntry(props: any) {
 
             <hr className="border-gray-100 mb-20 mt-10" />
 
-            <div className="footer mb-20 md:w-5/12">
+            <div className="footer mb-20 lg:w-5/12 md:w-8/12">
                 <EntryCard {...props.data.suggested} />
             </div>
         </LayoutPost>

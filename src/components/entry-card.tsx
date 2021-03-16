@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from 'gatsby'
+// @ts-ignore
+import ClockLogo from '../../static/svg/clock.svg';
 
 export const EntryCard = (props: any) => {
 
@@ -11,12 +13,13 @@ export const EntryCard = (props: any) => {
                     <span className="font-bold text-gray-500">{props.frontmatter.categories[0]}</span>
                 }
                 <h3 className="font-bold text-2xl">{props.frontmatter.title}</h3>
-                <span>{props.frontmatter.date}</span>
+                <span style={{textAlign: 'end'}}>{props.frontmatter.date}</span>
                 <div className="mt-10 flex-grow">
-                    <p>{props.excerpt}</p>
+                    <p>{props.frontmatter.description}</p>
                 </div>
-                <div className="mt-5">
-                    <span className="font-bold">Leer más</span>
+                <div className="flex mt-5">
+                    <ClockLogo style={{width: '15px', height: 'auto', marginRight: '7px', fill: 'white'}} />
+                    <span>{props.timeToRead} min</span>
                 </div>
             </Link>
         </li>

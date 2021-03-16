@@ -16,6 +16,14 @@ module.exports = {
         `gatsby-plugin-robots-txt`,
         `gatsby-plugin-netlify`,
         {
+            resolve: "gatsby-plugin-react-svg",
+            options: {
+                rule: {
+                    include: /svg/ // See below to configure properly
+                }
+            }
+        },
+        {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'src',
@@ -24,8 +32,8 @@ module.exports = {
         },
         {
             resolve: 'gatsby-plugin-mdx',
-            extensions: [`.md`, `.mdx`],
             options: {
+                extensions: ['.md', '.mdx'],
                 defaultLayouts: {
                     default: require.resolve("./src/components/layout-post.tsx"),
                 },
@@ -35,7 +43,8 @@ module.exports = {
                         options: {
                             classPrefix: 'language-'
                         }
-                    }
+                    },
+                    'gatsby-remark-autolink-headers'
                 ]
 
             }

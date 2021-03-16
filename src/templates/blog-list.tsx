@@ -17,6 +17,7 @@ export const query = graphql`
                 frontmatter {
                     categories,
                     title,
+                    description,
                     date(formatString: "DD MMM YYYY", locale: "es")
                 },
                 excerpt,
@@ -58,18 +59,18 @@ export default function BlogList(props: any) {
                 <ol className="blog-entries" style={{ display: 'grid' }}>
                     {props.data.allMdx.edges.map((edge: any) => {
                         return (
-                            <EntryCard {...edge.node} />
+                            <EntryCard key={edge.node.frontmatter.title} {...edge.node} />
                         )
                     })}
                 </ol>
                 {!isFirst && (
                     <Link to={prevPage} rel="prev">
-                        ← Previous Page
+                        ← Página anterior
                     </Link>
                 )}
                 {!isLast && (
                     <Link to={nextPage} rel="next">
-                        Next Page →
+                        Siguiente página →
                     </Link>
                 )}
             </div>
