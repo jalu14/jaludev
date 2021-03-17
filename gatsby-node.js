@@ -4,7 +4,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions;
 
     if (node.internal.type === 'Mdx') {
-        let slug = path.basename(node.fileAbsolutePath, '.mdx').replace(/\s+/g, '-').toLowerCase();
+        let slug = path.basename(node.fileAbsolutePath, '.mdx').replace('.md', '').replace(/\s+/g, '-').toLowerCase();
         createNodeField({
             node,
             name: 'slug',
