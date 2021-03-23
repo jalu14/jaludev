@@ -19,8 +19,7 @@ export const Head = ({ title, children }: any) => {
     return (
         <Helmet title={title}>
             <html lang="es" />
-            {/* <meta name="google-site-verification" content="Q5hFA7PrMGkvUMPMQpwPVT_zT6AhbQFIq4tOxnC3Le0" />
-            <script data-ad-client="ca-pub-7944174490154863" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> */}
+            <script data-ad-client="ca-pub-7944174490154863" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             {children}
         </Helmet>
     )
