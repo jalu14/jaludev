@@ -1,0 +1,69 @@
+---
+import Card from "src/components/Card.astro";
+import dayjs from "dayjs";
+import "dayjs/locale/es";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import Layout from "@layouts/Layout.astro";
+import Pagination from "src/components/Pagination/Pagination";
+
+dayjs.locale("es");
+dayjs.extend(localizedFormat);
+
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+    console.log(process.env.STORYBLOK_TOKEN);
+
+    const posts = (await Astro.glob("../blog/**/*.{md,mdx}"))
+        .filter((p) => p.frontmatter.draft !== true)
+        .sort(
+            (a, b) =>
+                new Date(b.frontmatter.date).valueOf() -
+                new Date(a.frontmatter.date).valueOf()
+        );
+    let pagination: any[] = paginate(posts, { pageSize: 4 });
+    pagination.forEach(
+        (p) => (p.props.totalPages = Math.ceil(posts.length / 4))
+    );
+    return pagination;
+}
+// All paginated data is passed on the "page" prop
+const { page, totalPages } = Astro.props;
+---
+
+<Layout>
+    <ul role="list" class="grid gap-4 grid-cols-1 xl:grid-cols-2 p-0">
+        {
+            page.data.map((p: any) => {
+                return (
+                    <Card
+                        href={`/blog/${
+                            p.frontmatter.slug ||
+                            p.frontmatter.title
+                                .toLowerCase()
+                                .split(" ")
+                                .join("-")
+                        }`}
+                        tags={p.frontmatter.tags}
+                        title={p.frontmatter.title}
+                        subtitle={
+                            p.frontmatter.categories?.length &&
+                            p.frontmatter.categories[0]
+                        }
+                        description={p.frontmatter.description}
+                        date={
+                            p.frontmatter.date &&
+                            dayjs(p.frontmatter.date).format("LL")
+                        }
+                    />
+                );
+            })
+        }
+    </ul>
+
+    <div class="flex h-12 font-medium justify-center mb-10">
+        <Pagination
+            client:visible
+            currentPage={page.currentPage}
+            totalPages={totalPages}
+        />
+    </div>
+</Layout>

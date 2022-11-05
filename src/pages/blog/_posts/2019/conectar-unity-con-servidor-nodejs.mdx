@@ -1,0 +1,29 @@
+---
+categories: ["Unity", "NodeJS", "Sockets"]
+date: "2019-10-20T08:42:20+00:00"
+description: ""
+draft: false
+image: ""
+slug: "conectar-unity-con-nodejs"
+tags: ["Unity", "NodeJS", "WebSockets", "uWS"]
+title: "Conectar Unity con servidor NodeJS"
+weight: 1
+---
+
+Hace un tiempo empecé a hacer un juego en Unity y necesitaba un servidor que gestionase toda la conexión, no encontraba casi información y la poca que encontraba o no estaba actualizada o llevaba a errores, esto es lo que he aprendido tras 6 meses de uso.
+
+## ¿Qué vamos a conseguir?
+
+Conectar Unity con un servidor de [WebSocket](https://developer.mozilla.org/es/docs/Web/API/WebSockets_API) que gestione todo el estado de la partida y vaya informando a los clientes.
+
+## ¿Cómo lo vamos a conseguir?
+
+En Unity añadiremos 1 solo paquete que permitirá la conexión con websocket, crearé un servicio que se encargué de enviar y recibir mensajes, así podrá pasar a JSON todo.
+
+Como el servidor usa JS elijo enviar los mensajes como JSON, hay que pasar de objeto C# a JSON y viceversa
+
+El servidor usa una librería open-source para aplicar websockets que funciona muy muy bien, a parte, cada mensaje lo tenemos que **transformar el ArrayBuffer** que nos envía el cliente **a JSON.**
+
+## WebSocket y no Socket.io
+
+Al inicio de este proyecto utilicé Socket.io en Unity y el servidor, pero me encontré con bloqueos que no podía superar (ahora no recuerdo cuales) e investigando descubrí los websockets que solucionaban estos problemas.

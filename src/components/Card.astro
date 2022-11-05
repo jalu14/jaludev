@@ -1,0 +1,65 @@
+---
+import Logos from './Logos.astro';
+
+export interface Props {
+	title: string;
+	subtitle?: string;
+	description: string;
+	href?: string;
+	date: string;
+	body?: string;
+	tags?: string[]
+}
+
+function getReadingTime(content: string): number {
+	const WORDS_PER_MINUTE = 200;
+	if (!content) return 0;
+	const clean = content.replace(/<\/?[^>]+(>|$)/g, "");
+	const numberOfWords = clean.split(/\s/g).length;
+	return Math.ceil(numberOfWords / WORDS_PER_MINUTE);
+}
+
+const { href, title, subtitle, description, date, body, tags } = Astro.props;
+
+let readingTime = 0;
+if (body) readingTime = getReadingTime(body);
+---
+
+<li class="bg-gray-800 rounded-md shadow-2xl relative list-none">
+	<a href={href} class="">
+		<div class="flex flex-col h-full p-5">
+			{
+				subtitle && (
+					<span class="font-bold text-gray-400">{subtitle}</span>
+				)
+			}
+			<div>
+				<h3 class="text-2xl">{title}</h3>
+				{tags?.length && <Logos tags={tags} />}
+			</div>
+			<span class="text-right text-gray-400">{date}</span>
+			<p class="mt-10 flex-grow mb-0">
+				{description}
+			</p>
+			
+			{
+			readingTime ? 
+			<div class="flex fill-white text-white">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					style="transform: ;msFilter:;"
+					><path
+						d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+					></path><path
+						d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"
+					></path>
+				</svg>
+				<span class="ml-2">{readingTime} mins</span>
+			</div> : ''
+			}
+		</div>
+	</a>
+</li>

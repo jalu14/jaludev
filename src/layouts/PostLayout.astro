@@ -1,0 +1,32 @@
+---
+import Layout from "./Layout.astro";
+import dayjs from "dayjs";
+import "dayjs/locale/es";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+
+dayjs.locale("es");
+dayjs.extend(localizedFormat);
+
+export interface Props {
+	content: {
+		title: string;
+		date: string;
+	};
+}
+
+const { content } = Astro.props;
+
+let date;
+
+if (content.date) {
+	date = dayjs(content.date).format("LL");
+}
+---
+
+<Layout content={content} useArticle={true}>
+	<div class="mb-12 md:mb-24">
+		<h1 class="mb-5">{content.title}</h1>
+		<span class="text-gray-400">{date}</span>
+	</div>
+	<slot />
+</Layout>

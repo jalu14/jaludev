@@ -1,0 +1,44 @@
+---
+import "../assets/base.css";
+import Header from "../components/Header.astro";
+
+export interface Props {
+	content?: {
+		title?: string;
+	};
+	useArticle?: boolean
+}
+
+const {
+	// @ts-ignore
+	content: content,
+	useArticle: useArticle
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="/prism-synthwave84.css"/>
+		<meta name="generator" content={Astro.generator} />
+		<title>{content?.title ? `${content.title} | jaludev` : 'jaludev'}</title>
+	</head>
+	<body class="flex flex-col items-center bg-gray-900 min-h-screen">
+		<Header title={content?.title} />
+		<main
+			class="w-11/12 md:w-8/12 lg:w-6/12 py-4 sm:mx-20 sm:px-2 mt-16 text-gray-300"
+		>
+		{
+			useArticle ?
+			<article class="text-gray-400">
+				<slot />
+			</article> 
+			: 
+			<slot />
+		}
+		</main>
+	</body>
+</html>

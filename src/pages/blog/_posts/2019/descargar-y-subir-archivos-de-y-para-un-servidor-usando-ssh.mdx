@@ -1,0 +1,57 @@
+---
+categories: ["sysadmin"]
+date: 2019-11-26T22:43:06Z
+description: "Me he visto en la necesidad de mover una carpeta de un servidor a otro, aquí dejo apuntado como lo he conseguido."
+image: ""
+slug: "transferir-archivos-ssh-scp"
+tags: ["ssh", "scp", "public-key"]
+title: "Descargar y subir archivos de y para un servidor usando ssh"
+weight: 1
+---
+
+Primero de todo, hago un borrador que más adelante mejoraré (segurooo) con los comandos.
+
+```js
+posts.map((p) => {
+    return (
+        <Card
+            href={`/blog/${
+                p.frontmatter.slug ||
+                p.frontmatter.title
+                    .toLowerCase()
+                    .split(" ")
+                    .join("-")
+            }`}
+            title={p.frontmatter.title}
+            subtitle={
+                p.frontmatter.categories?.length &&
+                p.frontmatter.categories[0]
+            }
+            description={p.frontmatter.description}
+            date={
+                p.frontmatter.date &&
+                dayjs(p.frontmatter.date).format("LL")
+            }
+        />
+    );
+})
+```
+
+### Crear, en el servidor, un archivo tar.gz de una carpeta para facilitar la descarga
+```bash
+    tar -zcvf 'nombre-archivo'.tar.gz 'carpeta/'
+```
+
+### Descargar la carpeta desde el servidor
+```bash
+    scp -i 'nombre-archivo-clave' 'root'@'ip-servidor':/home/ubuntu/'nombre-archivo'.tar.gz ./
+```
+Este comando copiará el archivo en la carpeta desde la que lo ejecutemos.
+
+### Subir el archivo a un servidor
+```bash
+    scp -i 'nombre-archivo-clave' .\'nombre-archivo'.tar.gz 'root'@'ip-destino':/home/ubuntu
+```
+Y esto dejará el archivo tar.gz en el sitio que queramos.
+
+Ya está, he tardado un par de horas en sacar esto con el tema de la clave así que vendrá bien tenerlo apuntado.

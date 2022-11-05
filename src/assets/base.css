@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+    color: white !important;
+}
+
+h1 {
+    font-size: 2.25rem;
+}
+
+h2 {
+    margin: 1rem 0;
+    font-size: 1.6rem;
+}
+
+h3 {
+    margin: 1rem 0;
+    font-size: 1.4rem;
+}
+
+strong {
+    color: white;
+}
+
+p {
+    font-family: "Inter";
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.75;
+}
+
+article a {
+    border-color: #63b3ed;
+    color: #ebf8ff;
+    border-bottom-width: 1px;
+    font-weight: 700;
+}
+
+ul {
+    list-style: circle;
+    padding: 1.25rem;
+}
+
+pre {
+    @apply rounded-md;
+}
