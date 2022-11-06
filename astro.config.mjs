@@ -17,23 +17,8 @@ export default defineConfig({
     sitemap(), 
     robotsTxt(), 
     preact(),
-    // storyblock({
-    //   accessToken: process.env.STORYBLOCK_TOKEN,
-    //   apiOptions: {
-    //     region: 'eu'
-    //   },
-    //   components: {
-    //     post: 'layouts/PostStoryblok'
-    //   }
-    // })
   ],
   markdown: {
     syntaxHighlight: 'prism'
-  },
-  vite: {
-    plugins: [basicSsl()],
-    server: {
-      https: true
-    }
   }
 });
