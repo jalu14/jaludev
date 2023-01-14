@@ -4,7 +4,7 @@ date: "2021-01-12T16:22:19+00:00"
 slug: "propositos"
 tags: ["Blog"]
 title: "Me planteo propósitos tecnológicos para este 2021"
-description: "He estado dando muchos saltos este último año con varios frameworks, con la tontearía he hecho varias apps con ellos y quiero apuntar que me han parecido"
+description: ""
 weight: 1
 
 ---

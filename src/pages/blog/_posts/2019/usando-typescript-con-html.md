@@ -1,23 +1,17 @@
 ---
-categories: ["Bundler"]
-date: "2019-08-22T16:22:19+00:00"
-description: "Añadir TS a una aplicación HTML para facilitar el desarrollo"
-image: "/uploads/chrome_wVAfu0AeWT.png"
-slug: "parcel-typescript"
-tags: ["Parcel", "Typescript"]
-title: "Usando Parcel con HTML"
-weight: 1
+title: Usando Parcel con HTML
+date: '2019-08-21T22:00:00.000Z'
 ---
 
 ## ¿Qué es Parcel?
 
-[Parcel](https://parceljs.org/) es un empaquetador, parecido a otros como Gulp, Grunt o Webpack, se encarga de 'pasar' el código de un lenguaje a otro. Se suele usar para pasar Sass a CSS, TS a JS o parecidos.
+[Parcel](https://parceljs.org/ "") es un empaquetador, parecido a otros como Gulp, Grunt o Webpack, se encarga de 'pasar' el código de un lenguaje a otro. Se suele usar para pasar Sass a CSS, TS a JS o parecidos.
 
 Parcel funciona desde un terminal, se instala en la línea de comandos y se opera desde ahí
 
 ## Instalando Parcel
 
-Instalar Parcel es de lo más sencillo, tal y como tienen en su guía solo hay que tener [NodeJS](https://nodejs.org/en/) instalado para usar npm e introducir este comando:
+Instalar Parcel es de lo más sencillo, tal y como tienen en su guía solo hay que tener [NodeJS](https://nodejs.org/en/ "") instalado para usar npm e introducir este comando:
 
 ```bash
 npm install -g parcel-bundler
@@ -57,4 +51,4 @@ Ya está con estos 3 archivos se puede lanzar el servidor, que nos abrirá el en
 * Según ellos mismos especifican, va volando en comparación a otros.
 * La instalación y el arranque se hacen sin configuración y en 1 minuto contando la descarga, genial.
 * Cada vez que editas un archivo recarga todo en unos mili-segundos.
-* Obviamente poder usar TS y _transpilar_ a JS ayuda si estás acostumbrado o quieres entrar en el lenguaje **tipado**.
+* Obviamente poder usar TS y *transpilar* a JS ayuda si estás acostumbrado o quieres entrar en el lenguaje **tipado**.

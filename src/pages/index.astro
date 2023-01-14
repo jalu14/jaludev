@@ -1,29 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import dayjs from "dayjs";
-import "dayjs/locale/es";
-import localizedFormat from "dayjs/plugin/localizedFormat";
 import Pagination from "src/components/Pagination/Pagination";
+
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import "dayjs/locale/es";
 
 dayjs.locale("es");
 dayjs.extend(localizedFormat);
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("./blog/**/*.{md,mdx}"))
+const posts = await Astro.glob("./blog/**/*.{md,mdx}");
+const postsFinal = posts
 	.filter((p) => p.frontmatter.draft !== true)
 	.sort(
 		(a, b) =>
 			new Date(b.frontmatter.date).valueOf() -
 			new Date(a.frontmatter.date).valueOf()
 	)
-	.slice(0, 4);
+	.slice(0, 6);
 ---
 
 <Layout>
-	<ul role="list" class="grid gap-4 grid-cols-1 xl:grid-cols-2 p-0">
+	<ul role="list" class="grid gap-6 grid-cols-1 xl:grid-cols-2 p-0">
 		{
-			posts.map((p) => {
+			postsFinal.map((p) => {
 				return (
 					<Card
 						href={`/blog/${
@@ -39,7 +41,6 @@ const posts = (await Astro.glob("./blog/**/*.{md,mdx}"))
 							p.frontmatter.categories?.length &&
 							p.frontmatter.categories[0]
 						}
-						description={p.frontmatter.description}
 						date={
 							p.frontmatter.date &&
 							dayjs(p.frontmatter.date).format("LL")
@@ -50,6 +51,6 @@ const posts = (await Astro.glob("./blog/**/*.{md,mdx}"))
 		}
 	</ul>
 	<div class="flex h-12 font-medium justify-center mb-10">
-		<Pagination client:visible currentPage={1} totalPages={10} />
+		<Pagination client:visible currentPage={1} totalPages={posts.length % 6} />
 	</div>
 </Layout>

@@ -10,8 +10,6 @@ dayjs.locale("es");
 dayjs.extend(localizedFormat);
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
-    console.log(process.env.STORYBLOK_TOKEN);
-
     const posts = (await Astro.glob("../blog/**/*.{md,mdx}"))
         .filter((p) => p.frontmatter.draft !== true)
         .sort(
@@ -19,9 +17,10 @@ export async function getStaticPaths({ paginate }: { paginate: Function }) {
                 new Date(b.frontmatter.date).valueOf() -
                 new Date(a.frontmatter.date).valueOf()
         );
-    let pagination: any[] = paginate(posts, { pageSize: 4 });
+
+    let pagination: any[] = paginate(posts, { pageSize: 6 });
     pagination.forEach(
-        (p) => (p.props.totalPages = Math.ceil(posts.length / 4))
+        (p) => (p.props.totalPages = Math.ceil(posts.length / 6))
     );
     return pagination;
 }

@@ -1,38 +1,39 @@
-import { h, Fragment } from 'preact';
 import './Pagination.css';
 
 export default function Pagination({ currentPage, totalPages }: { currentPage: number, totalPages: number }) {
 	let holder: number[] = [];
 	holder.length = totalPages;
 
+	const maxPageSpan = 3;
+	const isFirst = currentPage === 1;
+	const isLast = currentPage === totalPages;
 	const prevPage = currentPage - 1 === 1 ? "/" : '/page/' + (currentPage - 1).toString();
 	const nextPage = "/page/" + (currentPage + 1);
-	
+
 	return (
 		<div class="h-full flex font-medium justify-center mb-10 mt-5">
 			{
-				currentPage !== 1 ?
-					<a href={prevPage} class="pagination-link">
-						Prev
-					</a>
-					:
-					''
+				!isFirst &&
+				<a href={prevPage} class="pagination-link">
+					Prev
+				</a>
 			}
 			{
+				// TODO: Esto no funca bien
 				holder.map((e, i) => {
-					console.log('lel');
+					let link = 1 === 1 ? '/' : `/page/${i + 1}`;
 					return (
-						<li>{i + 1}</li>
+						<a href={link} class="pagination-link">
+							{i + 1}
+						</a>
 					)
 				})
 			}
 			{
-				currentPage !== totalPages ?
-					<a href={nextPage} class="pagination-link">
-						Next
-					</a>
-					:
-					''
+				!isLast &&
+				<a href={nextPage} class="pagination-link">
+					Next
+				</a>
 			}
 		</div>
 	)
