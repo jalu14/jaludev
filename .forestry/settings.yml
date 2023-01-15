@@ -4,11 +4,11 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
+- type: heading
+  label: Posts
 - type: document
   path: src/pages/blog/_posts
   label: Post
-- type: heading
-  label: Posts
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
