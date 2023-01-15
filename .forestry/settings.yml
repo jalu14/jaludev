@@ -7,8 +7,6 @@ sections:
 - type: document
   path: src/pages/blog/_posts
   label: Post
-  match: "**/*"
-  read_only: false
 - type: heading
   label: Posts
 upload_dir: uploads
