@@ -1,6 +1,6 @@
 ---
 category: Charlando
-date: 2023-01-14T16:22:19+00:00
+date: 2023-01-14 4:22 PM
 slug: propositos-2023
 tags:
 - Charlando
