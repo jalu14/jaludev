@@ -6,7 +6,9 @@ export async function getStaticPaths() {
 
     return posts.map((post) => ({
         params: {
-            slug: post.frontmatter.slug || (post.frontmatter.title.toLowerCase().split(' ').join('-')),
+            slug:
+                post.frontmatter.slug ||
+                post.frontmatter.title.toLowerCase().split(" ").join("-"),
         },
         props: {
             post,
@@ -17,6 +19,6 @@ export async function getStaticPaths() {
 const { Content, frontmatter } = Astro.props.post;
 ---
 
-<PostLayout content={{ title: frontmatter.title, date: frontmatter.date }}>
+<PostLayout content={frontmatter}>
     <Content />
 </PostLayout>

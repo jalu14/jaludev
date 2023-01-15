@@ -3,7 +3,7 @@ categories: ["Charlando"]
 date: "2023-01-14T16:22:19+00:00"
 slug: "propositos-2023"
 tags: ["Charlando"]
-title: "Propósitos tecnológicos para este 2023"
+title: "Propósitos tecnológicos para 2023"
 description: "Me planteo propósitos tecnológicos, nada de beber té de hierbas por la mañana"
 weight: 1
 
@@ -37,7 +37,11 @@ Me gusta plantearme los propósitos, no como algo que debo hacer sino como una g
 
 - Más apps
 
-  Este año he creado muchas cosas dado que resultan útiles, primero para mí y luego para otros, así que este año quiero hacer más y mejor, de paso también mejorar la presentación
+  Este año he creado muchas cosas dado que resultan útiles, primero para mí y luego para otros, así que este año quiero hacer más y mejor, de paso también mejorar la presentación.
+  
+- Mejorar con el blog
+
+  De la mano de youtube va este blog, ahora lo uso para apuntes y está un poco descuidado, incluso los mismos apuntes así que quiero limpiarlo un poco y mejorar que y como escribo.
 
 ### Aprendizaje
 
