@@ -4,8 +4,6 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: heading
-  label: Posts
 - type: document
   path: src/pages/blog/_posts/2023
   label: Post
