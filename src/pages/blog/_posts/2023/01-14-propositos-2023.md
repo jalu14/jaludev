@@ -9,8 +9,6 @@ weight: 1
 
 ---
 
-Como es de costumbre hace bastante que no escribo, pero he hecho bastante este año aunque no quiero enrollarme aquí y le dedico un apartado al final del post.
-
 ## Propósitos
 
 Me gusta plantearme los propósitos, no como algo que debo hacer sino como una guía para aprender, este año me ha servido mucho y vuelvo a la carga.
