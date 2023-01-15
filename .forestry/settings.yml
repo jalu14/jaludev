@@ -5,6 +5,13 @@ admin_path: ''
 webhook_url: 
 sections:
 - type: directory
+  path: src/pages/blog/_posts/2023
+  label: Posts 2023
+  create: all
+  match: "**/*"
+  templates:
+  - blog-post
+- type: directory
   path: src/pages/blog/_posts
   label: Posts
   create: all
