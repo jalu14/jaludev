@@ -1,0 +1,48 @@
+---
+label: Blog post
+hide_body: false
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: Título
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Descripción
+- name: draft
+  type: boolean
+  label: Borrador
+- name: date
+  type: datetime
+  label: Fecha
+  description: ''
+  config:
+    required: true
+    date_format: 
+    time_format: 
+    display_utc: false
+    export_format: YYYY-MM-DD h:mm A
+  default: now
+- name: category
+  type: select
+  default: ''
+  config:
+    required: false
+    options:
+    - Charlando
+    - Front
+    - Back
+    - FullStack
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Categoría
