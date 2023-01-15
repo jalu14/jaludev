@@ -1,6 +1,5 @@
 ---
 import PostLayout from "@layouts/PostLayout.astro";
-import { SEO } from "astro-seo";
 
 export async function getStaticPaths() {
     const posts = await Astro.glob("./**/*.{md,mdx}*");
@@ -21,6 +20,5 @@ const { Content, frontmatter } = Astro.props.post;
 ---
 
 <PostLayout content={frontmatter}>
-    <SEO title={frontmatter.title} description={frontmatter.description} />
     <Content />
 </PostLayout>
