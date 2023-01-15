@@ -1,7 +1,7 @@
 ---
 title: "Replicando una app con diferentes frameworks"
 slug: "misma-app-diferentes-frameworks"
-categories: ["Frontend"]
+category: "Front"
 tags: ["Angular", "React", "Svelte"]
 draft: true
 date: "2022-04-05T16:22:19+00:00"

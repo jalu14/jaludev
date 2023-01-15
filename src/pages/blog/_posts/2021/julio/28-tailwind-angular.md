@@ -1,5 +1,5 @@
 ---
-categories: ["Frontend"]
+category: "Front"
 date: "2021-07-28T16:22:19+00:00"
 slug: "tailwind-angular"
 tags: ["Angular", "Tailwind"]

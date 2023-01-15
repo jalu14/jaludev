@@ -1,5 +1,5 @@
 ---
-categories: ["Charlando"]
+category: "Charlando"
 date: "2021-01-12T16:22:19+00:00"
 slug: "propositos"
 tags: ["Blog"]

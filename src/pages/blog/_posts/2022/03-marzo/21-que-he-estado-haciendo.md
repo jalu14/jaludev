@@ -1,5 +1,5 @@
 ---
-categories: ["Charlando"]
+category: "Charlando"
 date: "2022-03-21T16:22:19+00:00"
 slug: "resumen-2021"
 tags: ["Resumen"]

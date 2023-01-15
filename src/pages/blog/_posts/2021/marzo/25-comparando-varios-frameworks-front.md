@@ -1,5 +1,5 @@
 ---
-categories: ["Frontend"]
+category: "Front"
 date: "2021-03-25T16:22:19+00:00"
 slug: "comparando-frameworks"
 tags: ["Angular", "React", "Svelte", "Sapper", "NextJS", "Gatsby"]

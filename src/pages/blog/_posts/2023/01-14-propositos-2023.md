@@ -1,11 +1,10 @@
 ---
-categories: ["Charlando"]
+category: "Charlando"
 date: "2023-01-14T16:22:19+00:00"
 slug: "propositos-2023"
 tags: ["Charlando"]
 title: "Propósitos tecnológicos para 2023"
 description: "Me planteo propósitos tecnológicos, nada de beber té de hierbas por la mañana"
-weight: 1
 
 ---
 

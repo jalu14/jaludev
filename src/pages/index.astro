@@ -38,8 +38,8 @@ const postsFinal = posts
 						tags={p.frontmatter.tags}
 						title={p.frontmatter.title}
 						subtitle={
-							p.frontmatter.categories?.length &&
-							p.frontmatter.categories[0]
+							p.frontmatter.category &&
+							p.frontmatter.category
 						}
 						date={
 							p.frontmatter.date &&

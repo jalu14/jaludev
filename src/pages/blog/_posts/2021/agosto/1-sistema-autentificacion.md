@@ -1,5 +1,5 @@
 ---
-categories: ["Next.js", "JWT"]
+category: "Back"
 date: "2021-08-01T16:22:19+00:00"
 draft: true
 slug: "sistema-autentificación"

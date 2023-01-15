@@ -1,5 +1,5 @@
 ---
-categories: ["Docker"]
+category: "Admin"
 date: "2019-09-18T16:22:19+00:00"
 description: "Como usar nginx proxy para poder desplegar facilmente aplicaciones o webs dotando de HTTPS sin esfuerzo"
 image: "/uploads/chrome_2019-10-18_01-58-56.png"
