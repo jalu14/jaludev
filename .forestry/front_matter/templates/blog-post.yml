@@ -7,15 +7,12 @@ fields:
   config:
     required: false
   label: Título
-- name: description
-  type: textarea
-  default: ''
+- name: slug
+  type: text
   config:
-    required: false
-    wysiwyg: false
-    schema:
-      format: markdown
-  label: Descripción
+    required: true
+    min: 1
+  label: Slug
 - name: draft
   type: boolean
   label: Borrador
@@ -46,3 +43,12 @@ fields:
       file: 
       path: 
   label: Categoría
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Descripción
