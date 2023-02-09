@@ -1,6 +1,6 @@
 ---
 category: Charlando
-date: 2023-01-14T16:22:19+00:00
+date: 2023-01-14 4:22 PM
 slug: propositos-2023
 tags:
 - Charlando
@@ -23,7 +23,7 @@ Me gusta plantearme los propósitos, no como algo que debo hacer sino como una g
   No se me da nada bien la parte visual, soy más de código pero es muy importante presentar bien eso que programas, sigo con tailwind que es una pasada pero quiero ampliar en otros ámbitos la forma en la que presento datos por ejemplo usando gráficos con d3.
 * **Afianzar mi stack para construir apps**
 
-  Este año he hecho bastantes apps que he compartido pero voy cambiando mucho de herramientas dependiendo del contexto; sí solo quiero una app con **front** uso **solidjs**, si necesito un **servidor** para una api o para un cron, pues tiro de **Nest** a veces con **mongodb** otras con otra BD diferente. Así que quiero organizarme un stack propio para tener las cosas más claras
+  Este año he hecho bastantes apps que he compartido pero voy cambiando mucho de herramientas dependiendo del contexto; si solo quiero una app con **front** uso **solidjs**, si necesito un **servidor** para una api o para un cron, pues tiro de **Nest** a veces con **mongodb** otras con otra BD diferente. Así que quiero organizarme un stack propio para tener las cosas más claras
 
 ### Cosas para compartir
 
