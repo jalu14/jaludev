@@ -52,3 +52,5 @@ fields:
     schema:
       format: markdown
   label: Descripción
+pages:
+- test-mdx.mdx

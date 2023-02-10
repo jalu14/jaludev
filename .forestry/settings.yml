@@ -9,7 +9,7 @@ sections:
   label: MDX Posts
   create: all
   match: src/pages/blog/_posts
-  new_doc_ext: ".mdx"
+  new_doc_ext: mdx
   templates:
   - blog-post
 - type: directory
