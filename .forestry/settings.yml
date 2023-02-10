@@ -8,8 +8,8 @@ sections:
   path: src/pages/blog
   label: MDX
   create: all
-  match: "**/*"
-  new_doc_ext: ".mdx"
+  match: "**/*.mdx"
+  new_doc_ext: mdx
   templates:
   - blog-post
 - type: directory
