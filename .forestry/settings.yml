@@ -19,7 +19,7 @@ sections:
   new_doc_ext: md
   templates:
   - blog-post
-upload_dir: public
+upload_dir: public/images
 public_path: "/public/images"
 front_matter_path: ''
 use_front_matter_path: false
