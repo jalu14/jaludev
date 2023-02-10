@@ -9,7 +9,7 @@ description: Me planteo propósitos tecnológicos, nada de beber té de hierbas 
   mañana
 
 ---
-## Propósitos
+## ![](/uploads/z4fo3jue2o.png)Propósitos
 
 Me gusta plantearme los propósitos, no como algo que debo hacer sino como una guía para aprender, este año me ha servido mucho y vuelvo a la carga.
 
