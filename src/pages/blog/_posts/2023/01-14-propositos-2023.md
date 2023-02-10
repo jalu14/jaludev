@@ -40,5 +40,3 @@ Me gusta plantearme los propósitos, no como algo que debo hacer sino como una g
 ### Aprendizaje
 
 Por último quiero formarme más, me llaman mucho las matemáticas y la utilidad que tienen para programar, representar/interpretar datos, así que este año quiero empezar a mejorar en esta área.
-
-![](/images/mirmg-win64-shipping_txxqohnmn5.png)
