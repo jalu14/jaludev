@@ -6,12 +6,10 @@ webhook_url:
 sections:
 - type: directory
   path: src/pages/blog/_posts
-  label: Posts MDX
+  label: MDX
   create: all
   match: "**/*"
   new_doc_ext: ".mdx"
-  templates:
-  - blog-post
 - type: directory
   path: src/pages/blog/_posts/2023
   label: Posts 2023
