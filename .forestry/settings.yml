@@ -8,8 +8,10 @@ sections:
   path: src/pages/blog/_posts
   label: MDX
   create: all
-  match: "**/*"
-  new_doc_ext: ".mdx"
+  match: "**/*.mdx"
+  new_doc_ext: mdx
+  templates:
+  - blog-post
 - type: directory
   path: src/pages/blog/_posts/2023
   label: Posts 2023
